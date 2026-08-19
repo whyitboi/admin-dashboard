@@ -18,7 +18,6 @@
   --_borderRadius: var(--borderRadius, 1em);
   --_fontFamily: var(--fontFamily,);
   --_fontSize: var(--fontSize, var(clamp(1rem, 0.5rem + 1.5vw, 2rem), 24px));
-  /* var(--fontSize, var(clamp(1rem, 0.5rem + 1.5vw, 2rem), 24px)); */
   --_fontColor: var(--fontColor, black);
   --gap: 1em;
   --padding: 1em;
@@ -110,8 +109,14 @@ body {
   --backGroundColor: white;
   background-color: var(--_backGroundColor);
   border-radius: var(--_borderRadius);
-  box-shadow: 1em;
+  box-shadow: 2px 2px #888888;
+  align-items: center;
+  padding: 1em;
 }
+.trending {
+  margin: 1em;
+}
+
 .big-card-wrapper {
   display: flex;
   flex-direction: column;
@@ -128,7 +133,5 @@ body {
   --backGroundColor: white;
   background-color: var(--_backGroundColor);
   border-radius: var(--_borderRadius);
-}
-.trending {
-  margin: 1em;
+  box-shadow: 2px 2px #888888;
 }
