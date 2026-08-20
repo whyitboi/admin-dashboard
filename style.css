@@ -127,6 +127,7 @@ body {
 }
 .header-left > div {
   padding-left: 2em;
+  padding-bottom: 0;
   justify-content: flex-start;
 }
 .header-right > div {
@@ -134,13 +135,22 @@ body {
   justify-content: flex-end;
   gap: 2em;
 }
+.name-tag-greeting {
+  --fontFamily: "robotobold";
+  display: grid;
+  font-family: var(--_fontFamily);
+}
+#name-tag {
+  --fontSize: 2em;
+  font-size: var(--_fontSize);
+}
 .header-right-avatar {
   width: 50px;
   height: 50px;
 }
 .header-left-avatar {
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
 }
 .header-left {
   display: grid;
@@ -158,7 +168,7 @@ body {
 
 .search-bar {
   height: 90%;
-  width: 85%;
+  width: 80%;
   --borderRadius: 50px;
   --backGroundColor: #e8e8e8;
   background-color: var(--_backGroundColor);
@@ -239,8 +249,7 @@ body {
   border-radius: var(--_borderRadius);
   box-shadow: 2px 2px #888888;
   align-items: center;
-  padding: 1em;
-  padding-top: 0;
+  padding: 0 1em 1em 2em;
   position: relative;
 }
 .card > p {
@@ -285,7 +294,7 @@ body {
   max-width: 290px;
 }
 #big-card-avatar ul li {
-  --fontSize: 18px;
+  --fontSize: 14px;
   --fontFamily: "robotolight";
   display: flex;
   font-size: var(--_fontSize);
@@ -297,11 +306,20 @@ body {
 .big-card-text {
   font-size: 12px;
   font-weight: 500;
-  /* display: grid; */
 }
-.avatars,
-.header-right-avatar,
-.header-left-avatar {
+.avatars {
   width: 40px;
   height: 40px;
+}
+.trending-avatar-names {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  column-gap: var(--gap);
+}
+#trending-avatar-names-header {
+  --fontSize: 18px;
+  font-size: var(--_fontSize);
+}
+.trending-avatar-names p {
+  grid-column: 2;
 }
