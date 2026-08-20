@@ -1,23 +1,26 @@
 @font-face {
-    font-family: 'robotobold';
-    src: url('roboto-bold-webfont.woff2') format('woff2'),
-         url('roboto-bold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "robotobold";
+  src:
+    url("./fonts/roboto-bold-webfont.woff2") format("woff2"),
+    url("./fonts/roboto-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 @font-face {
-    font-family: 'robotolight';
-    src: url('roboto-light-webfont.woff2') format('woff2'),
-         url('roboto-light-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "robotolight";
+  src:
+    url("./fonts/roboto-light-webfont.woff2") format("woff2"),
+    url("./fonts/roboto-light-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 @font-face {
-    font-family: 'robotoregular';
-    src: url('roboto-regular-webfont.woff2') format('woff2'),
-         url('roboto-regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "robotoregular";
+  src:
+    url("./fonts/roboto-regular-webfont.woff2") format("woff2"),
+    url("./fonts/roboto-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
 * {
@@ -38,12 +41,13 @@
   --_backGroundColor: var(--backGroundColor, transparent);
   --_border: var(--border, none);
   --_borderRadius: var(--borderRadius, 1em);
-  --_fontFamily: var(--fontFamily,"robotoregular");
+  --_fontFamily: var(--fontFamily, "robotoregular");
   --_fontSize: var(--fontSize, var(clamp(1rem, 0.5rem + 1.5vw, 2rem), 24px));
   --_fontColor: var(--fontColor, black);
   --gap: 1em;
   --padding: 1em;
 }
+
 body {
   --fontSize: 18px;
   font-size: var(--_fontSize);
@@ -66,11 +70,43 @@ body {
   grid-row: 1/3;
   justify-content: flex-start;
   padding: var(--padding);
+  gap: 2em;
+}
+.dashboard {
+  --fontFamily: "robotobold";
+  --fontSize: 1.5em;
+  font-family: var(--_fontFamily);
+  font-size: var(--_fontSize);
+  display: flex;
+  align-items: center;
+}
+.dashboard-icon {
+  width: 50px;
+  height: 50px;
+}
+.icon {
+  width: 24px;
+  height: 24px;
+}
+.icon path,
+.icon fill,
+.dashboard-icon path,
+.dashboard-icon fill {
+  fill: #ffffff;
+}
+
+.links-container {
+  padding-bottom: var(--padding);
 }
 .links {
   display: flex;
   flex-direction: column;
-  gap: 2em;
+  gap: 1.5em;
+}
+.links li {
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
 }
 
 .header {
@@ -83,26 +119,29 @@ body {
 
 .header-right > div,
 .header-left > div {
-  /* display: grid; */
-  justify-content: baseline;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  padding: 5px;
 }
 .header-left {
   display: grid;
 }
 .search-button {
-  border: var(--_border);
-  background-color: var(--_backGroundColor);
-  align-self: center;
-}
-.search-button img {
-  border: var(--_border);
-  background-color: var(--_backGroundColor);
+  background-image: url("./icons/magnify.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
   width: 24px;
   height: 24px;
+  border: var(--_border);
+  background-color: var(--_backGroundColor);
 }
+
 .search-bar {
   height: 100%;
-  width: 70%;
+  width: 85%;
   --borderRadius: 50px;
   --backGroundColor: #e8e8e8;
   background-color: var(--_backGroundColor);
@@ -153,18 +192,43 @@ body {
   background: transparent;
   max-height: fit-content;
 }
+.article-announcement,
+.article-projects,
+.trending {
+  --fontSize: 1.5em;
+  font-size: var(--_fontSize);
+}
+.headings {
+  --fontFamily: "robotobold";
+  --fontSize: 1em;
+  font-family: var(--_fontFamily);
+  font-size: var(--_fontSize);
+}
+
 .card {
+  --fontFamily: "robotolight";
+  font-family: var(--_fontFamily);
+  font-size: var(--_fontSize);
   display: grid;
   height: 200px;
-  --backGroundColor: white;
-  background-color: var(--_backGroundColor);
+  /* max-width: 350px; */
+  overflow: hidden;
+  background: linear-gradient(
+    to right,
+    orange 0%,
+    orange 3%,
+    white 3%,
+    white 100%
+  );
+
   border-radius: var(--_borderRadius);
   box-shadow: 2px 2px #888888;
   align-items: center;
   padding: 1em;
+  padding-top: 0;
 }
-.trending {
-  margin: 1em;
+.card > p {
+  padding-bottom: 1em;
 }
 
 .big-card-wrapper {
@@ -177,9 +241,11 @@ body {
   justify-content: space-between;
   margin-bottom: 1em;
 }
-.big-card ul p {
+.big-card ul li {
   display: grid;
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  font-size: 14px;
+  padding-bottom: 1em;
 }
 .big-card {
   --backGroundColor: white;
@@ -188,5 +254,5 @@ body {
   background-color: var(--_backGroundColor);
   border-radius: var(--_borderRadius);
   box-shadow: 2px 2px #888888;
+  max-width: 290px;
 }
-
